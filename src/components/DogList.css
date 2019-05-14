@@ -1,10 +1,8 @@
 .ul-list {
   font-weight: bold;
   columns: 6;
-  column-gap: 35px;
   list-style-type: none;
   margin-top: 50px;
-  text-align: left
 }
 
 .li-link {
@@ -19,5 +17,5 @@
 }
 
 .li-list:hover {
-  transform: scale(1.2)
+  transform: scale(1.5)
 }
