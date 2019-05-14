@@ -24,7 +24,6 @@ export default class OneDogImageContainer extends Component {
 		return (
 			<div>
 				<OneDogImage images={ this.state.images } />
-				Is this thing on?
 			</div>
 		)
 	}
