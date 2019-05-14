@@ -9,7 +9,7 @@ export default class DogBreedImagesContainer extends Component {
 		const breed = this.props.match.params.breed
     
     request
-      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/10`)
       .then(response => this.updateImages(response.body.message))
 			.catch(console.error)
 		}

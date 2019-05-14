@@ -7,6 +7,7 @@ import GameTwo from './components/GameTwo'
 
 import './App.css';
 import logo from './img/doggo.png'
+import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <div className="content">
         <Route exact path="/" component={Home}/>
         <Route path="/dogsBreedList" component={DogBreedList}/>
+        <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
         <Route path="/gameOne" component={GameOne} />
         <Route path="/gameTwo" component={GameTwo} />
       </div>

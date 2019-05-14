@@ -5,7 +5,7 @@ export default class DogBreedList extends Component {
   render() {
     return (
       <div>
-        <DogsListContainer />   
+        <DogsListContainer />
       </div>
     )
   }
