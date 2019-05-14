@@ -7,9 +7,9 @@ export default class OneDogImageContainer extends Component {
 	state = { images: null }
 
 	componentDidMount() {
-		const breed = this.props.match.params.breed
+
 		request
-			.get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random`)
+			.get(`https://dog.ceo/api/breeds/image/random`)
 			.then(response => this.updateImages(response.body.message))
 			.catch(console.error)
 	}
@@ -24,7 +24,7 @@ export default class OneDogImageContainer extends Component {
 		return (
 			<div>
 				<OneDogImage images={ this.state.images } />
-				This page will show images of the { this.props.match.params.breed } breed.				
+				Is this thing on?
 			</div>
 		)
 	}
