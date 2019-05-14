@@ -5,7 +5,7 @@ export default function DogBreedImages(props) {
   return (
     <div className='dog-breed-images'>
       <h1>{props.breed} Images</h1>
-        <p>Her are 10 images</p>
+        <p>Here are 10 images</p>
       
       <div style={styles.divImg}>
         { images && images.map(url => <img style={styles.img} key={ url } src={ url } alt="Dog" />) }
