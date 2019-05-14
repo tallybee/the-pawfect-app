@@ -6,7 +6,7 @@ export default class DogBreedList extends Component {
   render() {
     return (
       <div>
-        <Route component={DogsListContainer}></Route>
+        <Route component={DogsListContainer}></Route> 
       </div>
     )
   }

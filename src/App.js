@@ -22,7 +22,8 @@ function App() {
       <img src={logo} alt='Logo' />
       <div className="content">
         <Route exact path="/" component={Home}/>
-        <Route path="/dogsBreedList" component={DogBreedList}/>
+        <Route path="/dogsBreedList" component={DogBreedList}
+        />
         <Route path="/gameOne" component={GameOne} />
         <Route path="/gameTwo" component={GameTwo} />
       </div>
