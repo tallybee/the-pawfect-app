@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import './DogList.css'
+
 export default class DogsList extends Component {
 
   renderDogBreed(breed) {
-    return <li key={breed}>
-        <Link  style={styles.liList} to={ `/dog-breeds/${breed}` }>{breed}</Link>
+    return <li className='li-list' key={breed}>
+        <Link className='li-link' to={ `/dog-breeds/${breed}` }>{breed}</Link>
     </li>
   }
 
@@ -16,23 +18,10 @@ export default class DogsList extends Component {
         <h1>Dogs List</h1>
 
         { !dogBreeds && 'Loading' }
-        { <ul style={styles.uList}>
+        { <ul className='ul-list'>
         { dogBreeds && dogBreeds.map(this.renderDogBreed) }
         </ul> }
         </div>
       )
-  }
-}
-
-const styles = {
-  uList: {
-    columns: '6',
-    listStyle: 'none',
-    marginTop: '50px'
-  },
-
-  liList: {
-    textDecoration: 'none',
-    textTransform: 'capitalize'
   }
 }

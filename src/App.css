@@ -2,15 +2,6 @@
   text-align: center;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 10vh;
-  background: rgb(73, 79, 82);
-  color: #fff;
-}
-
 .Home-app {
   width: 500px;
   margin: 0 auto;
