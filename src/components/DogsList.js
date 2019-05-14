@@ -5,7 +5,7 @@ export default class DogsList extends Component {
 
   renderDogBreed(breed) {
     return <li key={breed}>
-        <Link to={ `/dog-breeds/${breed}` }>{breed}</Link>
+        <Link  style={styles.liList} to={ `/dog-breeds/${breed}` }>{breed}</Link>
     </li>
   }
 
@@ -16,7 +16,7 @@ export default class DogsList extends Component {
         <h1>Dogs List</h1>
 
         { !dogBreeds && 'Loading' }
-        { <ul >
+        { <ul style={styles.uList}>
         { dogBreeds && dogBreeds.map(this.renderDogBreed) }
         </ul> }
         </div>
@@ -24,9 +24,15 @@ export default class DogsList extends Component {
   }
 }
 
+const styles = {
+  uList: {
+    columns: '6',
+    listStyle: 'none',
+    marginTop: '50px'
+  },
 
-const style = {
-    uList: {
-        heigth: 
-    }
+  liList: {
+    textDecoration: 'none',
+    textTransform: 'capitalize'
+  }
 }
