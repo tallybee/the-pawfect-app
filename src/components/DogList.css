@@ -1,0 +1,23 @@
+.ul-list {
+  font-weight: bold;
+  columns: 6;
+  column-gap: 35px;
+  list-style-type: none;
+  margin-top: 50px;
+  text-align: left
+}
+
+.li-link {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: #0000ff;
+}
+
+.li-list {
+  transition: all .2s ease-in-out;
+
+}
+
+.li-list:hover {
+  transform: scale(1.2)
+}
