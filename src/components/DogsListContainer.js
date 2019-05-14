@@ -4,9 +4,9 @@ import DogsList from './DogsList'
 
 export default class DogsListContainer extends Component {
 
-    state = { breeds: null }
+    state = { dogBreeds: null }
 
-   componentDidMount() {
+    componentDidMount() {
         request
             .get('https://dog.ceo/api/breeds/list/all')
             .then(response => {
@@ -14,8 +14,6 @@ export default class DogsListContainer extends Component {
                 this.updateBreeds(breeds)
             })
             .catch(console.error)
-
-            
     }
 
     updateBreeds(breeds) {
@@ -25,7 +23,7 @@ export default class DogsListContainer extends Component {
     }
 
     render() {
-        return <DogsList breeds={this.state.breeds} breed={this.props.match.params.breed} />
+        return <DogsList dogBreeds={this.state.dogBreeds} breed={this.props.match.params.breed} />
     }
 
 }

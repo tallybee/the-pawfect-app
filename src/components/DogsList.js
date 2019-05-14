@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class DogsList extends Component {
 
     renderDogBreed(breed) {
         return <li key={breed}>
-            <Link to={ `/breeds/${breed}` }>{breed}</Link>
+            <Link to={ `/dog-breeds/${breed}` }>{breed}</Link>
         </li>
     }
 
