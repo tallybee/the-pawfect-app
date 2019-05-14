@@ -5,6 +5,7 @@ export default class GameTwo extends Component {
     return (
       <div>
         <h2>Game Two</h2>
+        <p>TESTING</p>
       </div>
     )
   }

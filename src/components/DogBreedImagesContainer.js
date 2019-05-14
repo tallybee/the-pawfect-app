@@ -6,13 +6,13 @@ export default class DogBreedImagesContainer extends Component {
   state = { images: null }
 
   componentDidMount() {
-    const breed = this.props.match.params.breed
+		const breed = this.props.match.params.breed
     
     request
-      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/10`)
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)
       .then(response => this.updateImages(response.body.message))
-      .catch(console.error)
-  }
+			.catch(console.error)
+		}
 
   updateImages(images) {
     this.setState({
@@ -23,7 +23,7 @@ export default class DogBreedImagesContainer extends Component {
   render() {
     return (
       <div>
-        <DogBreedImages images={this.state.images} breed={this.props.match.parDogBreedImagesams.breed} />
+        <DogBreedImages images={this.state.images} breed={this.props.match.params.breed} />
       </div>
     )
   }

@@ -15,7 +15,7 @@ export default class DogsList extends Component {
     const { dogBreeds } = this.props
     return (
         <div className="dogs-list">
-        <h1>Dogs List</h1>
+        <h2>Dogs List</h2>
 
         { !dogBreeds && 'Loading' }
         { <ul className='ul-list'>
