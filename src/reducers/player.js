@@ -25,7 +25,7 @@ export default function Player(state = initialState, action) {
         {
           name: action.name,
           score: 0,
-        }
+      }
       ];
       return {
           ...state,
