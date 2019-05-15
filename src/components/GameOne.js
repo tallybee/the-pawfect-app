@@ -6,7 +6,8 @@ import request from "superagent";
 import './GameOne.css'
 
 class GameOne extends Component {
-  state = { wrongOptionOne: null, wrongOptionTwo: null };
+  state = { options: [],
+            correctDogBreed: null }
 
   componentDidMount() {
     request
@@ -19,13 +20,19 @@ class GameOne extends Component {
   }
 
   updateOptions(breeds) {
-    this.setState({
-        wrongOptionOne: breeds[Math.floor(Math.random() * (breeds.length))],
-        wrongOptionTwo: breeds[Math.floor(Math.random() * (breeds.length))]
-    })
-  }
+    this.setState({ 
+        options: 
+        [breeds[Math.floor(Math.random() * (breeds.length))],
+        breeds[Math.floor(Math.random() * (breeds.length))], breeds[Math.floor(Math.random() * (breeds.length))]]
+        }
+    )
+    this.setCorrect();}
 
-
+    setCorrect = () => {
+      this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
+      console.log(this.state)
+    }
+     
 
   handleChoice = guessedBreed => {
     if (
@@ -57,13 +64,13 @@ class GameOne extends Component {
       <div>
         <OneDogImageContainer/>
         <div>
-        <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
-        { this.props.correctDogBreed }
+        <button onClick={() => this.handleChoice(this.state.options[0])}>
+        { this.state.options[0] }
         </button>
-        <button onClick={() => this.handleChoice(this.state.wrongOptionOne)}>
-          {this.state.wrongOptionOne}        
+        <button onClick={() => this.handleChoice(this.state.options[1])}>
+          {this.state.options[1]}        
         </button>
-        <button onClick={() => this.handleChoice(this.state.wrongOptionTwo)}> {this.state.wrongOptionTwo} </button>
+        <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
         </div>
       </div>
     );
