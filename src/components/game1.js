@@ -43,7 +43,6 @@ class Game extends React.Component {
     return (
       <>
         <h3>What am I?</h3>
-        {/* <img value = {this.selectedDogBreed} value='hound'/> */}
         <p onClick={() => this.handleChoice("hound")} type="CORRECT_ANSWER">
           {" "}
           correctDogBreed{" "}
