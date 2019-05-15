@@ -1,9 +1,27 @@
 import React, { Component } from 'react'
 import OneDogImageContainer from './OneDogImageContainer'
-import GameOneContainer from './GameOneContainer';
 import { connect } from "react-redux";
+import request from 'superagent'
 
 class GameOne extends Component {
+  state = { wrongOptionOne: null,
+    wrongOptionTwo: null }
+
+  componentDidMount() {
+  request
+    .get(`https://dog.ceo/api/breeds/list/all`)
+    .then(response => {const breeds = Object.keys(response.body.message)
+    this.updateOptions(breeds)})
+    .catch(console.error)		
+  }
+
+  updateOptions(breeds) {
+    this.setState({
+        wrongOptionOne: breeds[Math.floor(Math.random() * (breeds.length))],
+        wrongOptionTwo: breeds[Math.floor(Math.random() * (breeds.length))]
+    })
+  }
+
   handleChoice = (guessedBreed) => {
     if (guessedBreed === this.props.correctDogBreed) {
       this.props.dispatch({
@@ -22,7 +40,6 @@ class GameOne extends Component {
     return (
       <div>
         <OneDogImageContainer/>
-        <GameOneContainer/>
         <div>
         <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
         { this.props.correctDogBreed }
@@ -40,6 +57,7 @@ class GameOne extends Component {
 
 const mapStateToProps = state => {
   return {
+    state: state,
     correctDogBreed: state.correctDogBreed,
     selectedDogBreed: state.selectedDogBreed
   };
