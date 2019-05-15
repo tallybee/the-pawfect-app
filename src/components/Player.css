@@ -3,8 +3,8 @@
   font-size: 1.2em;
   border-bottom: solid 2px #444;
   letter-spacing: 2px;
-  cursor: pointer;
   text-align: left;
+  margin-left: 10px;
 }
 
 .remove-player {

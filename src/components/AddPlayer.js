@@ -4,12 +4,12 @@ import './AddPlayer.css'
 
 export default class AddPlayer extends Component {
   state = {
-    name: '',
+    name: ''
   }
 
   onNameChange = (e) => {
     const name = e.target.value;
-    this.setState({ name: name });
+    this.setState({ name });
   }
 
  addPlayer = (e) => {
