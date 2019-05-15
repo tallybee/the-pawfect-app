@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import OneDogImage from './OneDogImage'
 import request from 'superagent'
+import { connect } from "react-redux";
 
-export default class OneDogImageContainer extends Component {
+export class OneDogImageContainer extends Component {
 
-	state = { images: null }
+	state = { images: null,
+				name: null }
 
 	componentDidMount() {
 
@@ -16,17 +18,25 @@ export default class OneDogImageContainer extends Component {
 
 	updateImages(images) {
 		this.setState({
-				images: images
+				images: images,
+				name: images.split('/')[4]
 		})
 	}
+
 
 	render() {
 		return (
 			<div>
 				<OneDogImage images={ this.state.images } />
-				Is this thing on?
+				{this.state.name}
 			</div>
 		)
 	}
 
 }
+
+const mapStatetoProps = state => {
+	return state
+}
+
+export default connect (mapStatetoProps)(OneDogImageContainer)
