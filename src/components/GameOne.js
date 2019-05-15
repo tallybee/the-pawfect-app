@@ -1,9 +1,29 @@
 import React, { Component } from 'react'
 import OneDogImageContainer from './OneDogImageContainer'
-import GameOneContainer from './GameOneContainer';
 import { connect } from "react-redux";
+import request from 'superagent'
+
+import './GameOne.css'
 
 class GameOne extends Component {
+  state = { wrongOptionOne: null,
+    wrongOptionTwo: null }
+
+  componentDidMount() {
+  request
+    .get(`https://dog.ceo/api/breeds/list/all`)
+    .then(response => {const breeds = Object.keys(response.body.message)
+    this.updateOptions(breeds)})
+    .catch(console.error)		
+  }
+
+  updateOptions(breeds) {
+    this.setState({
+        wrongOptionOne: breeds[Math.floor(Math.random() * (breeds.length))],
+        wrongOptionTwo: breeds[Math.floor(Math.random() * (breeds.length))]
+    })
+  }
+
   handleChoice = (guessedBreed) => {
     if (guessedBreed === this.props.correctDogBreed) {
       this.props.dispatch({
@@ -22,16 +42,14 @@ class GameOne extends Component {
     return (
       <div>
         <OneDogImageContainer/>
-        <GameOneContainer/>
         <div>
         <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
         { this.props.correctDogBreed }
         </button>
-        <button onClick={() => this.handleChoice("not hound")}>
-          {" "}
-          wrong breed{" "}
+        <button onClick={() => this.handleChoice(this.state.wrongOptionOne)}>
+          {this.state.wrongOptionOne}        
         </button>
-        <button onClick={() => this.handleChoice("a cat")}> wrong breed </button>
+        <button onClick={() => this.handleChoice(this.state.wrongOptionTwo)}> {this.state.wrongOptionTwo} </button>
         </div>
       </div>
     )
@@ -40,6 +58,7 @@ class GameOne extends Component {
 
 const mapStateToProps = state => {
   return {
+    state: state,
     correctDogBreed: state.correctDogBreed,
     selectedDogBreed: state.selectedDogBreed
   };
