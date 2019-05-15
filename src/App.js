@@ -19,7 +19,7 @@ function App() {
         <li><NavLink to="/">Home</NavLink></li> |
         <li><NavLink to="/dogsBreedList">Dogs List</NavLink></li> |
         <li><NavLink to="/gameOne">Game One</NavLink></li> |
-        <li><NavLink to="/gameTwo">Game Two</NavLink></li>
+        <li><NavLink to="/gameTwo">Game Two</NavLink></li> |
         <li><NavLink to="/gameOne">Game One</NavLink></li> |
         <li><NavLink to="/scoreBoard">ScoreBoard</NavLink></li>
       </ul>
