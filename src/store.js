@@ -7,9 +7,3 @@ const enhancer =
 const store = createStore(breeds, enhancer);
 
 export default store;
-
-
-// const randomDogBreedPicture = (randomDogBreed) => {
-//   const randomIndex = Math.floor(Math.random() * dogBreeds.length)
-//   return randomDogBreed[randomIndex];
-// }
