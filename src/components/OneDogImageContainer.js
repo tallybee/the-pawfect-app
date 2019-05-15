@@ -29,11 +29,11 @@ export class OneDogImageContainer extends Component {
 		this.props.dispatch({
 			type: "ADD_CORRECT_BREED",
 			payload: this.state.name
-			// payload: images.split('/')[4]
 		})
 	}
 
 	handleChoice = (guessedBreed) => {
+		console.log('guessed', guessedBreed)
     if (guessedBreed === this.props.correctDogBreed) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
