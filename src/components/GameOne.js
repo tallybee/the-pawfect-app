@@ -3,6 +3,8 @@ import OneDogImageContainer from './OneDogImageContainer'
 import { connect } from "react-redux";
 import request from 'superagent'
 
+import './GameOne.css'
+
 class GameOne extends Component {
   state = { wrongOptionOne: null,
     wrongOptionTwo: null }
@@ -44,11 +46,10 @@ class GameOne extends Component {
         <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
         { this.props.correctDogBreed }
         </button>
-        <button onClick={() => this.handleChoice("not hound")}>
-          {" "}
-          wrong breed{" "}
+        <button onClick={() => this.handleChoice(this.state.wrongOptionOne)}>
+          {this.state.wrongOptionOne}        
         </button>
-        <button onClick={() => this.handleChoice("a cat")}> wrong breed </button>
+        <button onClick={() => this.handleChoice(this.state.wrongOptionTwo)}> {this.state.wrongOptionTwo} </button>
         </div>
       </div>
     )
