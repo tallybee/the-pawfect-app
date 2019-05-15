@@ -11,44 +11,23 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'CORRECT_DOG': {
+    case "CORRECT_GUESS": {
       return {
         ...state,
-        selectedDogBreed: state.selectedDogBreed,
-        score: 1,
+        selectedDogBreed: action.payload,
+        score: state.score + 1,
         roundsPlayed: state.roundsPlayed +1
       };
     }
-      case 'WRONG_DOG': {
+      case "WRONG_GUESS": {
         return {
           ...state,
+          selectedDogBreed: action.payload,
           roundsPlayed: state.roundsPlayed +1
         }
       }
-
-    case "INCREMENT_SCORE": {
-      return {
-        ...state,
-        score: state.score + 1
-      }
-    }
   }
-
-  console.log("no switch", action)
   return state
-};
-
-export const whichDog = (correctDogBreed, value) => {
-  if (correctDogBreed === value) {
-    console.log("WOOF!");
-    // initialState.roundsPlayed +=1;
-    // initialState.correctGuesses +=1;
-    return Game;
-  } else {
-    console.log("OUUUU");
-    // initialState.roundsPlayed +=1;
-    return Game;
-  }
 };
 
 const enhancer =
