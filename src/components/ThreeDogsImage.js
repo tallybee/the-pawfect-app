@@ -18,7 +18,8 @@ export default function ThreeDogsImage (props) {
 
 const style = {
   img: {
-    width: '250px',
+    width: '300px',
+    borderRadius: '10px',
     margin: '5px'
   }
 }

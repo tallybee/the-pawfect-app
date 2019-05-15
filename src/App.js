@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom'
 import Home from './components/Home'
-import DogBreedList from './components/DogBreedList'
 import GameOne from './components/GameOne'
 import GameTwo from './components/GameTwo'
-
-import './App.css';
 import logo from './img/doggo.png'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer';
+import DogsListContainer from './components/DogsListContainer';
+
+import './App.css';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
       <img src={logo} alt='Logo' />
       <div className="content">
         <Route exact path="/" component={Home}/>
-        <Route path="/dogsBreedList" component={DogBreedList}/>
+        <Route path="/dogsBreedList" component={DogsListContainer}/>
         <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
         <Route path="/gameOne" component={GameOne} />
         <Route path="/gameTwo" component={GameTwo} />
