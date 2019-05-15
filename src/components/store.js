@@ -4,13 +4,20 @@ import Game from './game1'
 
 const initialState = {
   selectedDogBreed: '', 
-  correctDogBreed: 'hound',
+  correctDogBreed: '',
   roundsPlayed: 0,
   score: 0
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case "ADD_CORRECT_BREED": {
+      return {
+        ...state,
+        correctDogBreed: action.payload
+      }
+    }
+
     case "CORRECT_GUESS": {
       return {
         ...state,
