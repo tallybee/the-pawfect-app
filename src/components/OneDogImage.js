@@ -20,6 +20,7 @@ export default function OneDogImage (props) {
 
 const styles = {
 	img: {
-		width: '250px',
+		width: '350px',
+		borderRadius: '20px'
 	}
 }
