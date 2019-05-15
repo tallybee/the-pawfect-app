@@ -3,11 +3,11 @@ import { Route, NavLink } from 'react-router-dom'
 import Home from './components/Home'
 import GameOne from './components/GameOne'
 import GameTwo from './components/GameTwo'
-
-import './App.css';
 import logo from './img/doggo.png'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 import DogsListContainer from './components/DogsListContainer';
+
+import './App.css';
 
 function App() {
   return (

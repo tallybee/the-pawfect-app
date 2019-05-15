@@ -23,15 +23,16 @@ class GameOne extends Component {
       <div>
         <OneDogImageContainer/>
         <GameOneOptionsContainer/>
-        <h3>What am I?</h3>
-        <p onClick={() => this.handleChoice(this.props.correctDogBreed)}>
+        <div>
+        <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
         { this.props.correctDogBreed }
-        </p>
-        <p onClick={() => this.handleChoice("not hound")}>
+        </button>
+        <button onClick={() => this.handleChoice("not hound")}>
           {" "}
           wrong breed{" "}
-        </p>
-        <p onClick={() => this.handleChoice("a cat")}> wrong breed </p>
+        </button>
+        <button onClick={() => this.handleChoice("a cat")}> wrong breed </button>
+        </div>
       </div>
     )
   }
