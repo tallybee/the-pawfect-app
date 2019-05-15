@@ -1,5 +1,12 @@
 button {
   width: 200px;
   padding: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  margin: 25px 5px;
+  background: #34348b;
+  border: 1px solid #ccc;
+  color: #fff;
+  border-radius: 5px;
 }
