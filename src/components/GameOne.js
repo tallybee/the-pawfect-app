@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OneDogImageContainer from './OneDogImageContainer'
-import { GameOneOptionsContainer } from './GameOneOptionsContainer';
+import { GameOneOptionsContainer } from './GameOneContainer';
 import { connect } from "react-redux";
 
 class GameOne extends Component {
