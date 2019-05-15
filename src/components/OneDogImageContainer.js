@@ -48,7 +48,10 @@ export class OneDogImageContainer extends Component {
 	render() {
 		return (
 			<div>
-				<OneDogImage images={ this.state.images } />
+				<OneDogImage images={ this.state.images } />		
+				<div>
+					<p>Check me out, dawg!!</p>
+				</div>
 			</div>
 		)
 	}

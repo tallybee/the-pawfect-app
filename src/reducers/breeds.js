@@ -29,6 +29,16 @@ export default function reducer(state = initialState, action) {
           roundsPlayed: state.roundsPlayed +1
         }
       }
+      case "START_NEW_GAME": {
+        return {
+          state: {
+            selectedDogBreed: '', 
+            correctDogBreed: '',
+            roundsPlayed: 0,
+            score: 0
+          }
+        }
+      }
       default:
       return state
   }
