@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import OneDogImageContainer from './OneDogImageContainer'
+import Game from './game1'
 
 export default class GameOne extends Component {
   render() {
@@ -8,6 +9,7 @@ export default class GameOne extends Component {
         <h2>Game One</h2>
         <p>TESTING</p>
         <OneDogImageContainer/>
+        <Game />
       </div>
     )
   }
