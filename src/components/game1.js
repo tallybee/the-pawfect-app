@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import React from "react";
 import store, { whichDog } from "./store";
 import { tsConstructorType } from "@babel/types";
+import OneDogImageContainer from './OneDogImageContainer'
+
 const redux = require("redux");
 
 const dogBreeds = [
@@ -44,6 +46,9 @@ function makeNewQuestion() {
 
 const correctDogBreed = 'hound';
 
+const dogOne = 'dawg'
+
+
 class Game extends React.Component {
 
   // constructor(props) {
@@ -76,6 +81,7 @@ class Game extends React.Component {
   }
 
   render() {
+    console.log('image: ')
     return (
       <>
       <h3>What am I?</h3>
