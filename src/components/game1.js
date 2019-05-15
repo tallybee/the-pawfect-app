@@ -1,17 +1,5 @@
 import { connect } from "react-redux";
 import React from "react";
-import store, { whichDog } from "./store";
-import { tsConstructorType } from "@babel/types";
-import { OneDogImageContainer } from './OneDogImageContainer'
-
-const redux = require("redux");
-
-const dogBreeds = ["afghan", "basset", "blood", "english", "ibizan", "walker"];
-
-// const randomDogBreed = (dogBreeds) => {
-//   const randomIndex = Math.floor(Math.random() * dogBreeds.length)
-//   return dogBreeds[randomIndex]
-// };
 
 class Game extends React.Component {
 
@@ -53,13 +41,4 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     whichDog: selectedDogBreed => dispatch(whichDog(selectedDogBreed))
-//   }
-// }
-
-export default connect(
-  mapStateToProps
-  // mapDispatchToProps
-)(Game);
+export default connect( mapStateToProps)(Game);
