@@ -1,0 +1,28 @@
+.player {
+  display: flex;
+  font-size: 1.2em;
+  border-bottom: solid 2px #444;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+  .remove-player {
+    visibility: hidden;
+    margin-right: 10px;
+    color: #e57373;
+    cursor: pointer;
+  }
+
+  .player-name:hover .remove-player {
+    visibility: visible;
+  }
+
+  .player-name {
+    flex-grow: 1;
+    padding: 20px 10px 10px 10px;
+  }
+
+  .player-score {
+    width: 190px;
+    background: blue;
+  }
