@@ -25,8 +25,6 @@ class GameOne extends Component {
     })
   }
 
-
-
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
