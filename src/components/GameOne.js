@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OneDogImageContainer from './OneDogImageContainer'
-import { GameOneOptionsContainer } from './GameOneContainer';
+import GameOneContainer from './GameOneContainer';
 import { connect } from "react-redux";
 
 class GameOne extends Component {
@@ -22,7 +22,7 @@ class GameOne extends Component {
     return (
       <div>
         <OneDogImageContainer/>
-        <GameOneOptionsContainer/>
+        <GameOneContainer/>
         <div>
         <button onClick={() => this.handleChoice(this.props.correctDogBreed)}>
         { this.props.correctDogBreed }
