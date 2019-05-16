@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import OneDogImageContainer from "./OneDogImageContainer";
 import { connect } from "react-redux";
 import request from "superagent";
 
@@ -8,7 +7,7 @@ import './GameOne.css'
 class GameOne extends Component {
   state = { options: [],
             correctDogBreed: null,
-            images: null }
+            images: 'here to test' }
 
   componentDidMount() {
     request
@@ -28,13 +27,32 @@ class GameOne extends Component {
         breeds[Math.floor(Math.random() * (breeds.length))], breeds[Math.floor(Math.random() * (breeds.length))]]
         }
     )
-    this.setCorrect();}
+    this.setCorrect()
+    this.getImage()
+  }
 
-    setCorrect = () => {
-      this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
+  setCorrect = () => {
+    this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
+    console.log('working', this.state)
+    this.props.dispatch({
+      type: "ADD_CORRECT_BREED",
+      payload: this.state.correctDogBreed
+    })
+
+  }
+     getImage = () => {
+      request
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(this.state.correctDogBreed)}/images/random`)
+      .then(response => this.updateImages(response.body.message))
+			.catch(console.error)
+		}
+
+    updateImages(images) {
+      this.setState({
+        images: images
+      })
       console.log(this.state)
     }
-     
 
 
   handleChoice = guessedBreed => {
@@ -65,7 +83,7 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-         <OneDogImageContainer/>
+         <img src={this.state.images} alt='dawg'/>
         <div>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
