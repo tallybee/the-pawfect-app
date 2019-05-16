@@ -95,14 +95,8 @@ class GameOne extends Component {
     }
   };
 
-  restartGame = () => {
-    window.location.reload(
-      this.setState({
-        options: [],
-        correctDogBreed: null,
-        images: null
-      })
-    )
+  restartGame() {
+    window.location.reload();
   }
 
   render() {
