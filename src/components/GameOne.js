@@ -7,7 +7,8 @@ import './GameOne.css'
 
 class GameOne extends Component {
   state = { options: [],
-            correctDogBreed: null }
+            correctDogBreed: null,
+            images: null }
 
   componentDidMount() {
     request
@@ -62,7 +63,7 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-        <OneDogImageContainer/>
+         <OneDogImageContainer/>
         <div>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
