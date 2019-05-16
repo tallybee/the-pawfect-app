@@ -21,6 +21,7 @@ class GameOne extends Component {
   }
 
   updateOptions(breeds) {
+
     this.setState({ 
         options: 
         [breeds[Math.floor(Math.random() * (breeds.length))],
@@ -34,6 +35,7 @@ class GameOne extends Component {
       console.log(this.state)
     }
      
+
 
   handleChoice = guessedBreed => {
     if (
