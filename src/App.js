@@ -24,10 +24,10 @@ function App() {
         </ul>
       <div className="content">
         <Route exact path="/" component={Home}/>
-        <Route exact path="/dogsBreedList" component={DogsListContainer}/>
-        <Route exact path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
-        <Route exact path="/gameOne" component={GameOne} />
-        <Route exact path="/gameTwo" component={GameTwo} />
+        <Route path="/dogsBreedList" component={DogsListContainer}/>
+        <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
+        <Route path="/gameOne" component={GameOne} />
+        <Route path="/gameTwo" component={GameTwo} />
       </div>
     </div>
     </Route>
