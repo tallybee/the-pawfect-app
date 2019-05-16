@@ -8,8 +8,6 @@ import soundfail from '../sounds/fail.mp3'
 import Sound from 'react-sound'
 import "./GameOne.css";
 
-// const Mousetrap = require("mousetrap");
-
 class GameOne extends Component {
   state = { 
     options: [],
@@ -97,9 +95,6 @@ class GameOne extends Component {
   }
 
   render() {
-    // Mousetrap.bind('1', () => this.handleChoice(this.state.options[0]));
-    // Mousetrap.bind('2', () => this.handleChoice(this.state.options[1]));
-    // Mousetrap.bind('3', () => this.handleChoice(this.state.options[2]));
 
     if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
