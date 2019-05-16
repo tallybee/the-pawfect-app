@@ -59,7 +59,6 @@ class GameOne extends Component {
     });
   }
 
-
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
@@ -88,9 +87,15 @@ class GameOne extends Component {
   };
 
   render() {
+    if (this.props.roundsPlayed === 10) {
+      return (<div>
+        <h2>Game Over</h2><div>
+        <h3>You have {this.props.score} correct guesses.</h3>
+        </div>
+        </div>)
+    } else {
     return (
       <div>
-
         <h1>What breed am I?</h1>
          <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
@@ -102,9 +107,10 @@ class GameOne extends Component {
           {this.state.options[1]}        
         </button>
         <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
+        <h3>You guessed the breed of {this.props.score} out of {this.props.roundsPlayed} dogs.</h3>
         </div>
       </div>
-    );
+    );}
   }
 }
 
@@ -113,7 +119,8 @@ const mapStateToProps = state => {
     state: state,
     correctDogBreed: state.correctDogBreed,
     selectedDogBreed: state.selectedDogBreed,
-    roundsPlayed: state.roundsPlayed
+    roundsPlayed: state.roundsPlayed,
+    score: state.score
   };
 };
 
