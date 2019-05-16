@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
 import "./GameOne.css";
+import DoggoHappy from '../img/doggohappy.png'
+import DoggoSad from '../img/doggosad.png'
+import soundwin from '../sounds/shootingstar.mp3'
+import soundfail from '../sounds/fail.mp3'
+import Sound from 'react-sound'
+
+import "./GameOne.css";
+
 const Mousetrap = require("mousetrap");
 
 class GameOne extends Component {
@@ -97,29 +105,65 @@ class GameOne extends Component {
     Mousetrap.bind("3", () => this.handleChoice(this.state.options[2]));
     Mousetrap.bind("enter", () => this.restartGame());
 
-    if (this.props.roundsPlayed === 10) {
+    if (this.props.roundsPlayed === 1 && this.props.score === 1) {
+      return (
+        <div className='GameWin'>
+          <img src={DoggoHappy} alt="Dog sad"/>
+          <h2>You WIN</h2>
+          <div>
+            <h3>You have {this.props.score} correct guesses.</h3>
+            <Sound
+              url={soundwin}
+              playStatus={Sound.status.PLAYING}
+              playFromPosition={100 /* in milliseconds */}
+              onLoading={this.handleSongLoading}
+              onPlaying={this.handleSongPlaying}
+              loop={true}
+            />
+          </div>
+          <div>
+            <h3>You are the most pawfect doggo lover!</h3>
+          </div>
+          <button onClick={this.restarteGame}>Start New Game</button>
+        </div>
+      )
+    } else if (this.props.roundsPlayed === 1 && this.props.score < 1) {
       const categories = [
-        "You are not much into dogs, are you?",
+        "You are not that much into doggos, are you?",
         "This made me wanna howl",
         "Still room for imp-woof-ment!",
         "Pawsitive result",
-        "You know ya dawgs!",
-        "You are the most pawfect dog lover!"
+        "You still have a lot to learn",
+        "You know some dawgs!0",
+        "Keep going",
+        "You are getting better",
+        "That's the spirit",
+        "Amazing"
       ];
+      
       return (
-        <div>
-          <h2>Game Over</h2>
-          <img src="" alt="" />
+        <div className='GameOver'>
+          <img src={DoggoSad} alt="Dog sad"/>
+          <h2>GAME OVER</h2>
           <div>
             <h3>You have {this.props.score} correct guesses.</h3>
+            <Sound
+              url={soundfail}
+              playStatus={Sound.status.PLAYING}
+              playFromPosition={100 /* in milliseconds */}
+              onLoading={this.handleSongLoading}
+              onPlaying={this.handleSongPlaying}
+              loop={true}
+            />
           </div>
           <div>
             <h3>{categories[Math.floor(this.props.score/2)]}</h3>
           </div>
           <button onClick={this.restartGame}>Start New Game</button>
         </div>
-      );
-    } else {
+        )
+      }
+
       return (
         <div>
           <h1>What breed am I?</h1>
@@ -142,13 +186,12 @@ class GameOne extends Component {
               3. {this.state.options[2]}{" "}
             </button>
             <h3>
-              You guessed the breed of {this.props.score} out of{" "}
+              You guessed {this.props.score} breed out of {" "}
               {this.props.roundsPlayed} dogs.
             </h3>
           </div>
         </div>
       );
-    }
   }
 }
 
