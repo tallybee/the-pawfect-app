@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
+import DoggoHappy from '../img/doggohappy.png'
+import DoggoSad from '../img/doggosad.png'
 import "./GameOne.css";
+
 const Mousetrap = require("mousetrap");
 
 class GameOne extends Component {
-  state = {
+  state = { 
     options: [],
     correctDogBreed: null,
-    images: null
-  };
+    images: null 
+  }
 
   componentDidMount() {
     request
@@ -97,56 +100,57 @@ class GameOne extends Component {
     Mousetrap.bind('enter', () => this.restartGame());
  
 
-    if (this.props.roundsPlayed === 5) {
-      const categories = [
-        "are not much into dogs, are you?",
-        "were lucky once or twice, but you don't really know dogs",
-        "can still improve",
-        "you are getting there",
-        "know ya dawgs!",
-        "are the most pawfect dog lover!"
-      ];
+    if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
-        <div>
-          <h2>Game Over</h2>
-          <img src="" alt="" />
+        <div className='GameWin'>
+          <img src={DoggoHappy} alt="Dog sad"/>
+          <h2>You WIN</h2>
           <div>
             <h3>You have {this.props.score} correct guesses.</h3>
           </div>
           <div>
+
             <h3>You {categories[this.props.score]}</h3>
           </div>
           <button onClick={this.restartGame}>Start New Game</button>
+          <h3>You are the most pawfect doggo lover!</h3>
         </div>
-      );
-    } else {
+          <button onClick={this.restarteGame}>Start New Game</button>
+        </div>)
+    } else if(this.props.roundsPlayed === 5 && this.props.score < 5) {
+      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there']
       return (
-        <div>
-          <h1>What breed am I?</h1>
-          <img style={styles.img} src={this.state.images} alt="dawg" />
+        <div className='GameOver'>
+          <img src={DoggoSad} alt="Dog sad"/>
+          <h2>GAME OVER</h2>
           <div>
-            <h4>Check me out, dawg!</h4>
-            <button onClick={() => this.handleChoice(this.state.options[0])}> 1. 
-              {this.state.options[0]}
-            </button>
-            <button onClick={() => this.handleChoice(this.state.options[1])}> 2. 
-              {this.state.options[1]}
-            </button>
-            <button onClick={() => this.handleChoice(this.state.options[2])}> 3. 
-              {" "}
-              {this.state.options[2]}{" "}
-            </button>
-            <h3>
-              You guessed the breed of {this.props.score} out of{" "}
-              {this.props.roundsPlayed} dogs.
-            </h3>
+            <h3>You have {this.props.score} correct guesses.</h3>
           </div>
+          <div>
+          <h3>You {categories[this.props.score]}</h3>
         </div>
-      );
+          <button onClick={this.restarteGame}>Start New Game</button>
+        </div>)
     }
+    return (
+      <div>
+        <h1>What breed am I?</h1>
+         <img style={styles.img} src={this.state.images} alt='dawg'/>
+        <div>
+          <h4>Check me out, dawg!</h4>
+        <button onClick={() => this.handleChoice(this.state.options[0])}>
+        { this.state.options[0] }
+        </button>
+        <button onClick={() => this.handleChoice(this.state.options[1])}>
+          {this.state.options[1]}        
+        </button>
+        <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
+        <h3>You guessed the breed of {this.props.score} out of {this.props.roundsPlayed} dogs.</h3>
+        </div>
+      </div>
+    );
   }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -158,11 +162,11 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(GameOne);
+export default connect( mapStateToProps)(GameOne);
 
 const styles = {
   img: {
-    width: "350px",
-    borderRadius: "10px"
+    width: '350px',
+    borderRadius: '10px'
   }
-};
+}
