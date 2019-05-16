@@ -86,7 +86,7 @@ class GameOne extends Component {
     }
   };
 
-  restarteGame() {
+  restartGame() {
     window.location.reload();
   }
 
