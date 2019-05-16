@@ -7,7 +7,7 @@ import './GameOne.css'
 class GameOne extends Component {
   state = { options: [],
             correctDogBreed: null,
-            images: 'here to test' }
+            images: null }
 
   componentDidMount() {
     request
