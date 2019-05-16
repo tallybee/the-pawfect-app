@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import OneDogImageContainer from "./OneDogImageContainer";
 import { connect } from "react-redux";
 import request from "superagent";
 
 import './GameOne.css'
 
 class GameOne extends Component {
-  state = { options: [],
-            correctDogBreed: null,
-            images: null }
+  state = { 
+    options: [],
+    correctDogBreed: null,
+    images: null 
+  }
 
   componentDidMount() {
     request
@@ -28,7 +29,22 @@ class GameOne extends Component {
         breeds[Math.floor(Math.random() * (breeds.length))], breeds[Math.floor(Math.random() * (breeds.length))]]
         }
     )
-    this.setCorrect();}
+    this.setCorrect()
+    this.getImage()}
+
+    getImage = () => {
+      request
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(this.state.correctDogBreed)}/images/random`)
+      .then(response => this.updateImages(response.body.message))
+            .catch(console.error)
+        }
+
+    updateImages(images) {
+      this.setState({
+        images: images
+      })
+      console.log(this.state)
+    }
 
     setCorrect = () => {
       this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
@@ -40,7 +56,7 @@ class GameOne extends Component {
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
@@ -48,7 +64,7 @@ class GameOne extends Component {
       });
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
@@ -65,8 +81,10 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-         <OneDogImageContainer/>
+        <h1>What breed am I?</h1>
+         <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
+          <h4>Check me out, dawg!</h4>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
         </button>
@@ -91,3 +109,9 @@ const mapStateToProps = state => {
 
 export default connect( mapStateToProps)(GameOne);
 
+const styles = {
+  img: {
+    width: '350px',
+    borderRadius: '10px'
+  }
+}
