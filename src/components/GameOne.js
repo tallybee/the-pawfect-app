@@ -88,10 +88,13 @@ class GameOne extends Component {
 
   render() {
     if (this.props.roundsPlayed === 5) {
-      return (<div>
-        <h2>Game Over</h2><div>
-        <h3>You have {this.props.score} correct guesses.</h3>
-        </div>
+      return (
+        <div>
+          <h2>Game Over</h2>
+          <div>
+            <h3>You have {this.props.score} correct guesses.</h3>
+          </div>
+          <button>Start New Game</button>
         </div>)
     } else {
     return (
