@@ -19,3 +19,11 @@
   top: 0;
   right: 200px;
 }
+
+.correctButton {
+  background: green;
+}
+
+.wrongButton {
+  background: red
+}
