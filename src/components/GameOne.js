@@ -95,8 +95,14 @@ class GameOne extends Component {
     }
   };
 
-  restartGame() {
-    window.location.reload();
+  restartGame = () => {
+    window.location.reload(
+      this.setState({
+        options: [],
+        correctDogBreed: null,
+        images: null
+      })
+    )
   }
 
   render() {
@@ -105,7 +111,7 @@ class GameOne extends Component {
     Mousetrap.bind("3", () => this.handleChoice(this.state.options[2]));
     Mousetrap.bind("enter", () => this.restartGame());
 
-    if (this.props.roundsPlayed === 10 && this.props.score === 10) {
+    if (this.props.roundsPlayed === 1 && this.props.score === 1) {
       return (
         <div className='GameWin'>
           <img src={DoggoHappy} alt="Dog sad"/>
