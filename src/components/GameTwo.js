@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
+import DoggoHappy from '../img/doggohappy.png'
+import DoggoSad from '../img/doggosad.png'
+import soundwin from '../sounds/shootingstar.mp3'
+import soundfail from '../sounds/fail.mp3'
+import Sound from 'react-sound'
+
 import "./GameTwo.css";
 
 class GameTwo extends Component {
@@ -92,40 +98,80 @@ class GameTwo extends Component {
   }
 
   render() {
-    console.log(this.state, "1")
-    if (this.props.roundsPlayed === 5) {
-      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there',  'know ya dawgs!', 'are the most pawfect dog lover!' ]
+    if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
-        <div>
-          <h2>Game Over</h2>
+        <div className='GameWin'>
+          <img src={DoggoHappy} alt="Dog sad"/>
+          <h2>You WIN</h2>
           <div>
             <h3>You have {this.props.score} correct guesses.</h3>
+            <Sound
+              url={soundwin}
+              playStatus={Sound.status.PLAYING}
+              playFromPosition={100 /* in milliseconds */}
+              onLoading={this.handleSongLoading}
+              onPlaying={this.handleSongPlaying}
+              loop={true}
+            />
           </div>
           <div>
-          <h3>You {categories[this.props.score]}</h3>
-        </div>
+            <h3>You are the most pawfect doggo lover!</h3>
+          </div>
           <button onClick={this.restarteGame}>Start New Game</button>
-        </div>)
-    } else {
-    return ( this.state.images !== null && <div>
-        <h1>Find the {this.props.correctDogBreed}!</h1>
-        <div>
-          <h4>Where am I?</h4>
-          <img src={this.state.images[0]} alt='first'/>
-        <button onClick={() => this.handleChoice(this.state.options[0])}>
-          {this.state.options[0]}        
-        </button>
-        <img src={this.state.images[1]} alt='second'/>
-        <button onClick={() => this.handleChoice(this.state.options[1])}>
-          {this.state.options[1]}        
-        </button>
-        <img src={this.state.images[2]} alt='third'/>
-        <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
-        <h3>You guessed the breed of {this.props.score} out of {this.props.roundsPlayed} dogs.</h3>
         </div>
-      </div>
-    );}
-  }
+      )
+    } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {
+      const categories = [
+        "You are not that much into doggos, are you?",
+        "This made me wanna howl",
+        "Still room for imp-woof-ment!",
+        "Pawsitive result",
+        "You still have a lot to learn",
+        "You know some dawgs!0",
+        "Keep going",
+        "You are getting better",
+        "That's the spirit",
+        "Amazing"
+      ]
+      return (
+        <div className='GameOver'>
+          <img src={DoggoSad} alt="Dog sad"/>
+          <h2>GAME OVER</h2>
+          <div>
+            <h3>You have {this.props.score} correct guesses.</h3>
+            <Sound
+              url={soundfail}
+              playStatus={Sound.status.PLAYING}
+              playFromPosition={100 /* in milliseconds */}
+              onLoading={this.handleSongLoading}
+              onPlaying={this.handleSongPlaying}
+              loop={true}
+            />
+          </div>
+          <div>
+            <h3>{categories[Math.floor(this.props.score/2)]}</h3>
+          </div>
+          <button onClick={this.restartGame}>Start New Game</button>
+        </div>
+      )
+    }
+    
+    return (
+      this.state.images !== null &&
+      <div>
+        <h1>Find the {this.props.correctDogBreed}!</h1>
+        <div className='Image-container'>
+          <h4>Where am I?</h4>
+          <img src={this.state.images[0]} alt='first' onClick={() => this.handleChoice(this.state.options[0])} />
+          
+          <img src={this.state.images[1]} alt='second' onClick={() => this.handleChoice(this.state.options[1])} />
+          
+          <img src={this.state.images[2]} alt='third' onClick={() => this.handleChoice(this.state.options[2])} />
+          
+          <h3>You guessed {this.props.score} breed out of {this.props.roundsPlayed} dogs.</h3>
+        </div>
+    </div>
+  );}
 }
 
 const mapStateToProps = state => {
@@ -139,11 +185,4 @@ const mapStateToProps = state => {
 };
 
 export default connect( mapStateToProps)(GameTwo);
-
-const styles = {
-  img: {
-    width: '350px',
-    borderRadius: '10px'
-  }
-}
 
