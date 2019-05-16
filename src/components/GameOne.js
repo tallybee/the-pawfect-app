@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
 
-import './GameOne.css'
+import "./GameOne.css";
 
 class GameOne extends Component {
   state = { 
@@ -22,35 +22,42 @@ class GameOne extends Component {
   }
 
   updateOptions(breeds) {
+    this.setState({
+      options: [
+        breeds[Math.floor(Math.random() * breeds.length)],
+        breeds[Math.floor(Math.random() * breeds.length)],
+        breeds[Math.floor(Math.random() * breeds.length)]
+      ]
+    });
+    this.setCorrect();
+    this.getImage();
+  }
 
-    this.setState({ 
-        options: 
-        [breeds[Math.floor(Math.random() * (breeds.length))],
-        breeds[Math.floor(Math.random() * (breeds.length))], breeds[Math.floor(Math.random() * (breeds.length))]]
-        }
-    )
-    this.setCorrect()
-    this.getImage()}
-
-    getImage = () => {
-      request
-      .get(`https://dog.ceo/api/breed/${encodeURIComponent(this.state.correctDogBreed)}/images/random`)
+  setCorrect = () => {
+    this.setState({
+      correctDogBreed: this.state.options[Math.floor(Math.random() * 3)]
+    });
+    this.props.dispatch({
+      type: "ADD_CORRECT_BREED",
+      payload: this.state.correctDogBreed
+    });
+  };
+  getImage = () => {
+    request
+      .get(
+        `https://dog.ceo/api/breed/${encodeURIComponent(
+          this.state.correctDogBreed
+        )}/images/random`
+      )
       .then(response => this.updateImages(response.body.message))
-            .catch(console.error)
-        }
+      .catch(console.error);
+  };
 
-    updateImages(images) {
-      this.setState({
-        images: images
-      })
-      console.log(this.state)
-    }
-
-    setCorrect = () => {
-      this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
-      console.log(this.state)
-    }
-     
+  updateImages(images) {
+    this.setState({
+      images: images
+    });
+  }
 
 
   handleChoice = guessedBreed => {
@@ -62,6 +69,7 @@ class GameOne extends Component {
         type: "CORRECT_GUESS",
         payload: guessedBreed
       });
+      this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
       this.props.roundsPlayed
@@ -70,6 +78,7 @@ class GameOne extends Component {
         type: "WRONG_GUESS",
         payload: guessedBreed
       });
+      this.componentDidMount();
     } else {
       this.props.dispatch({
         type: "START_NEW_GAME"
@@ -81,6 +90,7 @@ class GameOne extends Component {
   render() {
     return (
       <div>
+
         <h1>What breed am I?</h1>
          <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
@@ -115,3 +125,4 @@ const styles = {
     borderRadius: '10px'
   }
 }
+
