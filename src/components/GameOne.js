@@ -83,7 +83,7 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-         <img src={this.state.images} alt='dawg'/>
+         <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
@@ -106,6 +106,12 @@ const mapStateToProps = state => {
     roundsPlayed: state.roundsPlayed
   };
 };
+
+const styles = {
+  img: {
+    width: '350px'
+  }
+}
 
 export default connect( mapStateToProps)(GameOne);
 
