@@ -62,3 +62,8 @@ button:hover {
   80% { transform: scale(1); }
   100% { transform: scale(1); }
 }
+
+.Option-buttons img {
+  width: 350px;
+  border-radius: 10px;
+}

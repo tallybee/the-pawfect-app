@@ -95,14 +95,8 @@ class GameOne extends Component {
     }
   };
 
-  restartGame = () => {
-    window.location.reload(
-      this.setState({
-        options: [],
-        correctDogBreed: null,
-        images: null
-      })
-    )
+  restartGame() {
+    window.location.reload();
   }
 
   render() {
@@ -111,7 +105,7 @@ class GameOne extends Component {
     Mousetrap.bind("3", () => this.handleChoice(this.state.options[2]));
     Mousetrap.bind("enter", () => this.restartGame());
 
-    if (this.props.roundsPlayed === 1 && this.props.score === 1) {
+    if (this.props.roundsPlayed === 10 && this.props.score === 10) {
       return (
         <div className='GameWin'>
           <img src={DoggoHappy} alt="Dog sad"/>
@@ -171,9 +165,9 @@ class GameOne extends Component {
       }
 
       return (
-        <div>
+        <div className='Option-buttons'>
           <h1>What breed am I?</h1>
-          <img style={styles.img} src={this.state.images} alt="dawg" />
+          <img src={this.state.images} alt="dawg" />
           <div>
             <h4>Check me out, dawg!</h4>
             <button onClick={() => this.handleChoice(this.state.options[0])}>
@@ -212,10 +206,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(GameOne);
-
-const styles = {
-  img: {
-    width: "350px",
-    borderRadius: "10px"
-  }
-};
