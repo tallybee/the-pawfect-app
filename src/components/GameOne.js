@@ -5,7 +5,11 @@ import request from "superagent";
 import "./GameOne.css";
 
 class GameOne extends Component {
-  state = { options: [], correctDogBreed: null, images: null };
+  state = { 
+    options: [],
+    correctDogBreed: null,
+    images: null 
+  }
 
   componentDidMount() {
     request
@@ -55,10 +59,11 @@ class GameOne extends Component {
     });
   }
 
+
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
@@ -67,7 +72,7 @@ class GameOne extends Component {
       this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
@@ -85,18 +90,18 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-        <img style={styles.img} src={this.state.images} alt="dawg" />
+
+        <h1>What breed am I?</h1>
+         <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
-          <button onClick={() => this.handleChoice(this.state.options[0])}>
-            {this.state.options[0]}
-          </button>
-          <button onClick={() => this.handleChoice(this.state.options[1])}>
-            {this.state.options[1]}
-          </button>
-          <button onClick={() => this.handleChoice(this.state.options[2])}>
-            {" "}
-            {this.state.options[2]}{" "}
-          </button>
+          <h4>Check me out, dawg!</h4>
+        <button onClick={() => this.handleChoice(this.state.options[0])}>
+        { this.state.options[0] }
+        </button>
+        <button onClick={() => this.handleChoice(this.state.options[1])}>
+          {this.state.options[1]}        
+        </button>
+        <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
         </div>
       </div>
     );
@@ -112,10 +117,12 @@ const mapStateToProps = state => {
   };
 };
 
+export default connect( mapStateToProps)(GameOne);
+
 const styles = {
   img: {
-    width: "350px"
+    width: '350px',
+    borderRadius: '10px'
   }
-};
+}
 
-export default connect(mapStateToProps)(GameOne);
