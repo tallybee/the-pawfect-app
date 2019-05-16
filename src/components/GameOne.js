@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import OneDogImageContainer from "./OneDogImageContainer";
 import { connect } from "react-redux";
 import request from "superagent";
 
@@ -27,32 +28,13 @@ class GameOne extends Component {
         breeds[Math.floor(Math.random() * (breeds.length))], breeds[Math.floor(Math.random() * (breeds.length))]]
         }
     )
-    this.setCorrect()
-    this.getImage()
-  }
+    this.setCorrect();}
 
-  setCorrect = () => {
-    this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
-    console.log('working', this.state)
-    this.props.dispatch({
-      type: "ADD_CORRECT_BREED",
-      payload: this.state.correctDogBreed
-    })
-
-  }
-     getImage = () => {
-      request
-      .get(`https://dog.ceo/api/breed/${encodeURIComponent(this.state.correctDogBreed)}/images/random`)
-      .then(response => this.updateImages(response.body.message))
-			.catch(console.error)
-		}
-
-    updateImages(images) {
-      this.setState({
-        images: images
-      })
+    setCorrect = () => {
+      this.setState({correctDogBreed: this.state.options[Math.floor(Math.random() * (3))]})
       console.log(this.state)
     }
+     
 
 
   handleChoice = guessedBreed => {
@@ -83,7 +65,7 @@ class GameOne extends Component {
   render() {
     return (
       <div>
-         <img style={styles.img} src={this.state.images} alt='dawg'/>
+         <OneDogImageContainer/>
         <div>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
@@ -106,12 +88,6 @@ const mapStateToProps = state => {
     roundsPlayed: state.roundsPlayed
   };
 };
-
-const styles = {
-  img: {
-    width: '350px'
-  }
-}
 
 export default connect( mapStateToProps)(GameOne);
 
