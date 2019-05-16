@@ -86,12 +86,19 @@ class GameOne extends Component {
     }
   };
 
+  restarteGame() {
+    window.location.reload()
+  }
+
   render() {
     if (this.props.roundsPlayed === 5) {
-      return (<div>
-        <h2>Game Over</h2><div>
-        <h3>You have {this.props.score} correct guesses.</h3>
-        </div>
+      return (
+        <div>
+          <h2>Game Over</h2>
+          <div>
+            <h3>You have {this.props.score} correct guesses.</h3>
+          </div>
+          <button onClick={this.restarteGame}>Start New Game</button>
         </div>)
     } else {
     return (
