@@ -63,7 +63,7 @@ class GameOne extends Component {
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
-      this.props.roundsPlayed
+      this.props.roundsPlayed < 10
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
@@ -72,7 +72,7 @@ class GameOne extends Component {
       this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
-      this.props.roundsPlayed
+      this.props.roundsPlayed < 10
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
