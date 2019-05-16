@@ -94,6 +94,8 @@ class GameOne extends Component {
     Mousetrap.bind('1', () => this.handleChoice(this.state.options[0]));
     Mousetrap.bind('2', () => this.handleChoice(this.state.options[1]));
     Mousetrap.bind('3', () => this.handleChoice(this.state.options[2]));
+    Mousetrap.bind('enter', () => this.restartGame());
+ 
 
     if (this.props.roundsPlayed === 5) {
       const categories = [
@@ -114,7 +116,7 @@ class GameOne extends Component {
           <div>
             <h3>You {categories[this.props.score]}</h3>
           </div>
-          <button onClick={this.restarteGame}>Start New Game</button>
+          <button onClick={this.restartGame}>Start New Game</button>
         </div>
       );
     } else {
