@@ -105,7 +105,7 @@ class GameOne extends Component {
     Mousetrap.bind("3", () => this.handleChoice(this.state.options[2]));
     Mousetrap.bind("enter", () => this.restartGame());
 
-    if (this.props.roundsPlayed === 1 && this.props.score === 1) {
+    if (this.props.roundsPlayed === 10 && this.props.score === 10) {
       return (
         <div className='GameWin'>
           <img src={DoggoHappy} alt="Dog sad"/>
@@ -127,7 +127,7 @@ class GameOne extends Component {
           <button onClick={this.restarteGame}>Start New Game</button>
         </div>
       )
-    } else if (this.props.roundsPlayed === 1 && this.props.score < 1) {
+    } else if (this.props.roundsPlayed === 10 && this.props.score < 10) {
       const categories = [
         "You are not that much into doggos, are you?",
         "This made me wanna howl",
