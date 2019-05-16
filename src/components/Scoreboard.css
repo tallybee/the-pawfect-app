@@ -1,0 +1,9 @@
+.scoreboard {
+  background: #333;
+  width: 500px;
+  margin: 70px auto;
+  box-shadow: 0 4px 0px #333;
+  font-family: arial;
+  color: #FAFAFA;
+  text-transform: uppercase;
+}

@@ -6,6 +6,7 @@ import GameTwo from './components/GameTwo'
 import logo from './img/doggo.png'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer';
 import DogsListContainer from './components/DogsListContainer';
+import Scoreboard from './components/Scoreboard';
 
 import './App.css';
 
@@ -18,7 +19,8 @@ function App() {
         <li><NavLink to="/">Home</NavLink></li> |
         <li><NavLink to="/dogsBreedList">Dogs List</NavLink></li> |
         <li><NavLink to="/gameOne">Game One</NavLink></li> |
-        <li><NavLink to="/gameTwo">Game Two</NavLink></li>
+        <li><NavLink to="/gameTwo">Game Two</NavLink></li>|
+        <li><NavLink to="/scoreBoard">ScoreBoard</NavLink></li>
       </ul>
       <img src={logo} alt='Logo' />
       <div className="content">
@@ -27,6 +29,7 @@ function App() {
         <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
         <Route path="/gameOne" component={GameOne} />
         <Route path="/gameTwo" component={GameTwo} />
+        <Route path="/scoreBoard" component={Scoreboard} />
       </div>
     </div>
     </Route>
