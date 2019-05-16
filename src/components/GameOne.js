@@ -5,7 +5,7 @@ import DoggoHappy from '../img/doggohappy.png'
 import DoggoSad from '../img/doggosad.png'
 import "./GameOne.css";
 
-const Mousetrap = require("mousetrap");
+// const Mousetrap = require("mousetrap");
 
 class GameOne extends Component {
   state = { 
@@ -94,9 +94,9 @@ class GameOne extends Component {
   }
 
   render() {
-    Mousetrap.bind('1', () => this.handleChoice(this.state.options[0]));
-    Mousetrap.bind('2', () => this.handleChoice(this.state.options[1]));
-    Mousetrap.bind('3', () => this.handleChoice(this.state.options[2]));
+    // Mousetrap.bind('1', () => this.handleChoice(this.state.options[0]));
+    // Mousetrap.bind('2', () => this.handleChoice(this.state.options[1]));
+    // Mousetrap.bind('3', () => this.handleChoice(this.state.options[2]));
 
     if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
@@ -126,6 +126,7 @@ class GameOne extends Component {
           <button onClick={this.restarteGame}>Start New Game</button>
         </div>)
     }
+    
     return (
       <div>
         <h1>What breed am I?</h1>
