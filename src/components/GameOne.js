@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
+import DoggoHappy from '../img/doggohappy.png'
+import DoggoSad from '../img/doggosad.png'
 
 import "./GameOne.css";
 
@@ -91,13 +93,25 @@ class GameOne extends Component {
   }
 
   render() {
-    if (this.props.roundsPlayed === 5) {
-      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there',  'know ya dawgs!', 'are the most pawfect dog lover!' ]
-
+    if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
-        <div>
-          <h2>Game Over</h2>
-          <img src="" alt=""/>
+        <div className='GameWin'>
+          <img src={DoggoHappy} alt="Dog sad"/>
+          <h2>You WIN</h2>
+          <div>
+            <h3>You have {this.props.score} correct guesses.</h3>
+          </div>
+          <div>
+          <h3>You are the most pawfect doggo lover!</h3>
+        </div>
+          <button onClick={this.restarteGame}>Start New Game</button>
+        </div>)
+    } else if(this.props.roundsPlayed === 5 && this.props.score < 5) {
+      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there']
+      return (
+        <div className='GameOver'>
+          <img src={DoggoSad} alt="Dog sad"/>
+          <h2>GAME OVER</h2>
           <div>
             <h3>You have {this.props.score} correct guesses.</h3>
           </div>
@@ -106,7 +120,7 @@ class GameOne extends Component {
         </div>
           <button onClick={this.restarteGame}>Start New Game</button>
         </div>)
-    } else {
+    }
     return (
       <div>
         <h1>What breed am I?</h1>
@@ -123,7 +137,7 @@ class GameOne extends Component {
         <h3>You guessed the breed of {this.props.score} out of {this.props.roundsPlayed} dogs.</h3>
         </div>
       </div>
-    );}
+    );
   }
 }
 

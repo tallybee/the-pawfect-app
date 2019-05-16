@@ -15,3 +15,50 @@ button {
 button:hover {
   transform: scale(1.1)
 }
+
+.GameWin img {
+  width: 350px;
+  border-radius: 20px;
+  border: 1px solid #34348b;
+  margin: 5px;
+}
+
+.GameOver img {
+  width: 350px;
+  border-radius: 20px;
+  border: 1px solid #34348b;
+  margin: 5px;
+}
+
+.GameWin h2 {
+  color: #44ff4e;
+  font-size: 50px;
+  margin-top: 15px;
+  animation-name: pulse_animation;
+  animation-duration: 2000ms;
+  transform-origin:70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.GameOver h2 {
+  color: #f10808;
+  font-size: 50px;
+  margin-top: 15px;
+  animation-name: pulse_animation;
+  animation-duration: 2000ms;
+  transform-origin:70% 70%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes pulse_animation {
+  0% { transform: scale(1); }
+  30% { transform: scale(1); }
+  40% { transform: scale(1.08); }
+  50% { transform: scale(1); }
+  60% { transform: scale(1); }
+  70% { transform: scale(1.05); }
+  80% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
