@@ -62,7 +62,7 @@ class GameOne extends Component {
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed < 5
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
@@ -71,7 +71,7 @@ class GameOne extends Component {
       this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed < 5
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
@@ -86,12 +86,20 @@ class GameOne extends Component {
     }
   };
 
+
+
   render() {
-    if (this.props.roundsPlayed === 10) {
+    if (this.props.roundsPlayed === 5) {
+      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there',  'know ya dawgs!', 'are the most pawfect dog lover!' ]
       return (<div>
-        <h2>Game Over</h2><div>
+        <h2>Game Over</h2>
+        <div>
         <h3>You have {this.props.score} correct guesses.</h3>
         </div>
+        <div>
+          <h3>You {categories[this.props.score]}</h3>
+        </div>
+        <button>Start New Game</button>
         </div>)
     } else {
     return (
@@ -107,7 +115,8 @@ class GameOne extends Component {
           {this.state.options[1]}        
         </button>
         <button onClick={() => this.handleChoice(this.state.options[2])}> {this.state.options[2]} </button>
-        <h3>You guessed the breed of {this.props.score} out of {this.props.roundsPlayed} dogs.</h3>
+        <h3>Correct guesses: {this.props.score} <br>
+        </br>Pictures seen: {this.props.roundsPlayed}</h3>
         </div>
       </div>
     );}
