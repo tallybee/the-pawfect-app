@@ -83,8 +83,10 @@ class GameOne extends Component {
   render() {
     return (
       <div>
+        <h1>What breed am I?</h1>
          <img style={styles.img} src={this.state.images} alt='dawg'/>
         <div>
+          <h4>Check me out, dawg!</h4>
         <button onClick={() => this.handleChoice(this.state.options[0])}>
         { this.state.options[0] }
         </button>
