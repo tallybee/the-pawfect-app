@@ -1,8 +1,21 @@
 .App {
   text-align: center;
 }
-
 .Home-app {
   width: 500px;
   margin: 0 auto;
+}
+
+.App-img1 {
+  position: absolute;
+  width: 75px;
+  top: 0;
+  left: 200px;
+}
+
+.App-img2 {
+  position: absolute;
+  width: 75px;
+  top: 0;
+  right: 200px;
 }

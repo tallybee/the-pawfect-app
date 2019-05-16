@@ -13,14 +13,15 @@ function App() {
   return (
     <Route>
       <div className='App'>
-        <h1>The Pawfect App</h1>
-      <ul className="header">
-        <li><NavLink to="/">Home</NavLink></li> |
-        <li><NavLink to="/dogsBreedList">Dogs List</NavLink></li> |
-        <li><NavLink to="/gameOne">Game One</NavLink></li> |
-        <li><NavLink to="/gameTwo">Game Two</NavLink></li>
-      </ul>
-      <img src={logo} alt='Logo' />
+          <img className='App-img1' src={logo} alt='Logo' />
+          <h1>The Pawfect App</h1>
+          <img className='App-img2' src={logo} alt='Logo' />
+        <ul className="header">
+          <li><NavLink to="/">Home</NavLink></li> |
+          <li><NavLink to="/dogsBreedList">Dogs List</NavLink></li> |
+          <li><NavLink to="/gameOne">Game One</NavLink></li> |
+          <li><NavLink to="/gameTwo">Game Two</NavLink></li>
+        </ul>
       <div className="content">
         <Route exact path="/" component={Home}/>
         <Route path="/dogsBreedList" component={DogsListContainer}/>
