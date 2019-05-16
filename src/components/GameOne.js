@@ -92,12 +92,16 @@ class GameOne extends Component {
 
   render() {
     if (this.props.roundsPlayed === 5) {
+      const categories = ['are not much into dogs, are you?', "were lucky once or twice, but you don't really know dogs", 'can still improve', 'you are getting there',  'know ya dawgs!', 'are the most pawfect dog lover!' ]
       return (
         <div>
           <h2>Game Over</h2>
           <div>
             <h3>You have {this.props.score} correct guesses.</h3>
           </div>
+          <div>
+          <h3>You {categories[this.props.score]}</h3>
+        </div>
           <button onClick={this.restarteGame}>Start New Game</button>
         </div>)
     } else {
