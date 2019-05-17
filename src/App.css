@@ -2,7 +2,7 @@
   text-align: center;
 }
 .Home-app {
-  width: 500px;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -26,4 +26,26 @@
 
 .wrongButton {
   background: red
+}
+
+.Home-app {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+@media (max-width: 414px) {
+  .App-img1 {
+    position: absolute;
+    width: 50px;
+    margin-top: 15px;
+    left: 5px;
+  }
+  
+  .App-img2 {
+    position: absolute;
+    width: 50px;
+    top: 0;
+    right: 5px;
+    margin-top: 15px;
+  }
 }
