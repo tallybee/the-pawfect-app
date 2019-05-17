@@ -170,18 +170,18 @@ class GameOne extends Component {
           <img src={this.state.images} alt="dawg" />
           <div>
             <h4>Check me out, dawg!</h4>
-            <button onClick={() => this.handleChoice(this.state.options[0])}>
+            <button value={this.state.options[0]} onClick={() => this.handleChoice(this.value)}>
               {" "}
               1.
               {this.state.options[0]}
             </button>
-            <button onClick={() => this.handleChoice(this.state.options[1])
+            <button value={this.state.options[1]} onClick={() => this.handleChoice(this.value)
             }>
               {" "}
               2.
               {this.state.options[1]}
             </button>
-            <button onClick={() => this.handleChoice(this.state.options[2])}>
+            <button value={this.state.options[2]} onClick={() => this.handleChoice(this.value)}>
               {" "}
               3. {this.state.options[2]}{" "}
             </button>
