@@ -137,7 +137,7 @@ class GameTwo extends Component {
         "Still room for imp-woof-ment!",
         "Pawsitive result",
         "You still have a lot to learn",
-        "You know some dawgs!0",
+        "You know some dawgs!",
       ]
 
       return (
