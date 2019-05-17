@@ -7,7 +7,7 @@ import soundwin from '../sounds/shootingstar.mp3'
 import soundfail from '../sounds/fail.mp3'
 import Sound from 'react-sound'
 
-import "./GameTwo.css";
+import "../css/GameTwo.css";
 
 const Mousetrap = require("mousetrap");
 
@@ -122,7 +122,6 @@ class GameTwo extends Component {
             <h3>You are the most pawfect doggo lover!</h3>
           </div>
           <button onClick={this.restartGame}>Start New Game</button>
-          <p>Click or Press ENTER</p>
         </div>
       )
     } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {

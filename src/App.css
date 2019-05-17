@@ -20,25 +20,21 @@
   right: 200px;
 }
 
-.correctButton {
-  background: #008000;
-}
-
-.wrongButton {
-  background: #ff0000;
-}
-
 .Home-app {
   font-size: 20px;
   line-height: 1.5;
 }
 
-@media (max-width: 414px) {
+@media (min-width: 320px) {
+  .App h1 {
+    font-size: 25px;
+  }
+
   .App-img1 {
     position: absolute;
     width: 35px;
     left: 5px;
-    margin-top: 25px;
+    margin-top: 15px;
   }
   
   .App-img2 {
@@ -46,6 +42,31 @@
     width: 35px;
     top: 0;
     right: 5px;
-    margin-top: 25px;
+    margin-top: 15px;
+  }
+
+  .Home-app {
+    width: 75%;
+  }
+}
+
+@media (min-width: 360px) {
+  .App h1 {
+    font-size: 28px;
+  }
+
+  .App-img1 {
+    position: absolute;
+    width: 35px;
+    left: 5px;
+    margin-top: 20px;
+  }
+  
+  .App-img2 {
+    position: absolute;
+    width: 35px;
+    top: 0;
+    right: 5px;
+    margin-top: 20px;
   }
 }

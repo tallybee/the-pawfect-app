@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
-import "./GameOne.css";
 import DoggoHappy from '../img/doggohappy.png'
 import DoggoSad from '../img/doggosad.png'
 import soundwin from '../sounds/shootingstar.mp3'
 import soundfail from '../sounds/fail.mp3'
 import Sound from 'react-sound'
 
-import "./GameOne.css";
+import "../css/GameOne.css";
 
 const Mousetrap = require("mousetrap");
 
@@ -194,6 +193,7 @@ class GameOne extends Component {
             </h3>
           </div>
         </div>
+      </div>
       );
   }
 }
