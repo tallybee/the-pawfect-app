@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
-import "./GameOne.css";
 import DoggoHappy from '../img/doggohappy.png'
 import DoggoSad from '../img/doggosad.png'
 import soundwin from '../sounds/shootingstar.mp3'
@@ -160,33 +159,33 @@ class GameOne extends Component {
         )
       }
 
-      return (
-        <div className='Option-buttons'>
-          <h1>What breed am I?</h1>
-          <img src={this.state.images} alt="dawg" />
-          <div>
-            <h4>Check me out, dawg!</h4>
-            <button onClick={() => this.handleChoice(this.state.options[0])}>
-              {" "}
-              1.
-              {this.state.options[0]}
-            </button>
-            <button onClick={() => this.handleChoice(this.state.options[1])
-            }>
-              {" "}
-              2.
-              {this.state.options[1]}
-            </button>
-            <button onClick={() => this.handleChoice(this.state.options[2])}>
-              {" "}
-              3. {this.state.options[2]}{" "}
-            </button>
-            <h3>
-              You guessed {this.props.score} breed out of {" "}
-              {this.props.roundsPlayed} dogs.
-            </h3>
-          </div>
+    return (
+      <div className='Option-buttons'>
+        <h1>What breed am I?</h1>
+        <img src={this.state.images} alt="dawg" />
+        <div>
+          <h4>Check me out, dawg!</h4>
+          <button onClick={() => this.handleChoice(this.state.options[0])}>
+            {" "}
+            1.
+            {this.state.options[0]}
+          </button>
+          <button onClick={() => this.handleChoice(this.state.options[1])
+          }>
+            {" "}
+            2.
+            {this.state.options[1]}
+          </button>
+          <button onClick={() => this.handleChoice(this.state.options[2])}>
+            {" "}
+            3. {this.state.options[2]}{" "}
+          </button>
+          <h3>
+            You guessed {this.props.score} breed out of {" "}
+            {this.props.roundsPlayed} dogs.
+          </h3>
         </div>
+      </div>
       );
   }
 }

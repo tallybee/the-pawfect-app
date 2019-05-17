@@ -122,7 +122,6 @@ class GameTwo extends Component {
             <h3>You are the most pawfect doggo lover!</h3>
           </div>
           <button onClick={this.restartGame}>Start New Game</button>
-          <p>Click or Press ENTER</p>
         </div>
       )
     } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {

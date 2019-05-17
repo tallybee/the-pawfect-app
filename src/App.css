@@ -33,7 +33,7 @@
   line-height: 1.5;
 }
 
-@media (max-width: 414px) {
+@media (max-width: 415px) {
   .App-img1 {
     position: absolute;
     width: 35px;
