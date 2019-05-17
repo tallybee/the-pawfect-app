@@ -6,9 +6,10 @@ export default class Home extends Component {
     return (
       <div className='Home-app'>
         <h1>Welcome</h1>
-        <p>Doggo ipsum adorable doggo fat boi long water shoob maximum borkdrive, doing me a frighten such treat. Thicc shoob clouds adorable doggo fluffer puggorino clouds, big ol the neighborhood pupper ur givin me a spook super chub pats. Doggo I am bekom fat h*ck heck vvv, ruff most angery pupper I have ever seen. Boof long woofer heckin good boys blop woofer long water shoob very jealous pupper doge, bork boofers I am bekom fat long water shoob length boy. </p>
-        <p>Very jealous pupper aqua doggo porgo very hand that feed shibe long doggo ruff, wrinkler corgo pupper boofers. Adorable doggo blep long water shoob you are doing me the shock stop it fren, blop fluffer. Heck blop boofers length boy bork woofer, you are doin me a concern puggo sub woofer.
-        </p>
+        <p>The Pawfect App is a game to test your knowledge about Doggos Breed. And before you take this pawesome chanllenge, you can always educate your self about it by going to <strong>DOGS LIST</strong>, there are 87 different breeds. But you think that you are a Doggo expect skipt it and show us what you got.</p>
+        <p>There is two games for you to Play.</p>
+        <p>GAME 1. You will see a pawcture of a doggo, and you will have to choose the right answer.</p>
+        <p>GAME 2. You will see 3 different doggos, and you will have to click on the right pawcture</p>
       </div>
     )
   }
