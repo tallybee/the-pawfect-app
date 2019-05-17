@@ -9,6 +9,8 @@ import Sound from 'react-sound'
 
 import "./GameTwo.css";
 
+const Mousetrap = require("mousetrap");
+
 class GameTwo extends Component {
   state = { 
     options: [],
@@ -93,11 +95,13 @@ class GameTwo extends Component {
     }
   };
 
-  restarteGame() {
+  restartGame() {
     window.location.reload()
   }
 
   render() {
+    Mousetrap.bind("enter", () => this.restartGame());
+
     if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
         <div className='GameWin'>
@@ -117,7 +121,8 @@ class GameTwo extends Component {
           <div>
             <h3>You are the most pawfect doggo lover!</h3>
           </div>
-          <button onClick={this.restarteGame}>Start New Game</button>
+          <button onClick={this.restartGame}>Start New Game</button>
+          <p>Click or Press ENTER</p>
         </div>
       )
     } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {
@@ -128,11 +133,8 @@ class GameTwo extends Component {
         "Pawsitive result",
         "You still have a lot to learn",
         "You know some dawgs!0",
-        "Keep going",
-        "You are getting better",
-        "That's the spirit",
-        "Amazing"
       ]
+
       return (
         <div className='GameOver'>
           <img src={DoggoSad} alt="Dog sad"/>
@@ -158,7 +160,7 @@ class GameTwo extends Component {
     
     return (
       this.state.images !== null &&
-      <div className='Container'>
+      <div>
         <h1>Find the {this.props.correctDogBreed}!</h1>
         <div className='Image-container'>
           <h4>Who am I?</h4>
@@ -168,7 +170,6 @@ class GameTwo extends Component {
           
           <img src={this.state.images[2]} alt='third' onClick={() => this.handleChoice(this.state.options[2])} />          
         </div>
-
         <h3>You guessed {this.props.score} breed out of {this.props.roundsPlayed} dogs.</h3>
     </div>
   );}
