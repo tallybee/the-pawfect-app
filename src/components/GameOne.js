@@ -98,6 +98,12 @@ class GameOne extends Component {
     window.location.reload();
   }
 
+  hint = () => {
+    if (this.props.previousBreeds.includes(this.props.correctDogBreed)) {
+      return 'You just saw someone like me'
+    } else { return `The name of my breed has the letter ${this.props.correctDogBreed.split('')[Math.floor(Math.random() * this.props.correctDogBreed.length)]} in it.` }
+  };
+
   render() {
     Mousetrap.bind("1", () => this.handleChoice(this.state.options[0]));
     Mousetrap.bind("2", () => this.handleChoice(this.state.options[1]));
@@ -133,7 +139,7 @@ class GameOne extends Component {
         "Still room for imp-woof-ment!",
         "Pawsitive result",
         "You still have a lot to learn",
-        "You know some dawgs!0",
+        "You know some dawgs!",
       ];
       
       return (
@@ -159,31 +165,33 @@ class GameOne extends Component {
         )
       }
 
-    return (
-      <div className='Option-buttons'>
-        <h1>What breed am I?</h1>
-        <img src={this.state.images} alt="dawg" />
-        <div>
-          <h4>Check me out, dawg!</h4>
-          <button onClick={() => this.handleChoice(this.state.options[0])}>
-            {" "}
-            1.
-            {this.state.options[0]}
-          </button>
-          <button onClick={() => this.handleChoice(this.state.options[1])
-          }>
-            {" "}
-            2.
-            {this.state.options[1]}
-          </button>
-          <button onClick={() => this.handleChoice(this.state.options[2])}>
-            {" "}
-            3. {this.state.options[2]}{" "}
-          </button>
-          <h3>
-            You guessed {this.props.score} breed out of {" "}
-            {this.props.roundsPlayed} dogs.
-          </h3>
+      return (
+        <div className='Option-buttons'>
+          <h1>What breed am I?</h1>
+          <img src={this.state.images} alt="dawg" />
+          <div>
+            <h4>Check me out, dawg!</h4>
+            <h4>{this.hint()}</h4>
+            <button onClick={() => this.handleChoice(this.state.options[0])}>
+              {" "}
+              1.
+              {this.state.options[0]}
+            </button>
+            <button onClick={() => this.handleChoice(this.state.options[1])
+            }>
+              {" "}
+              2.
+              {this.state.options[1]}
+            </button>
+            <button onClick={() => this.handleChoice(this.state.options[2])}>
+              {" "}
+              3. {this.state.options[2]}{" "}
+            </button>
+            <h3>
+              You guessed {this.props.score} breed out of {" "}
+              {this.props.roundsPlayed} dogs.
+            </h3>
+          </div>
         </div>
       </div>
       );
@@ -196,7 +204,8 @@ const mapStateToProps = state => {
     correctDogBreed: state.correctDogBreed,
     selectedDogBreed: state.selectedDogBreed,
     roundsPlayed: state.roundsPlayed,
-    score: state.score
+    score: state.score,
+    previousBreeds: state.previousBreeds
   };
 };
 
