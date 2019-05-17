@@ -99,9 +99,13 @@ class GameOne extends Component {
   }
 
   hint = () => {
-    if (this.props.previousBreeds.includes(this.props.correctDogBreed)) {
-      return 'You just saw someone like me'
-    } else { return `The name of my breed has the letter ${this.props.correctDogBreed.split('')[Math.floor(Math.random() * this.props.correctDogBreed.length)]} in it.` }
+    const hint = `The name of my breed has the letter ${this.props.correctDogBreed.split('')[Math.floor(Math.random() * this.props.correctDogBreed.length)]} in it.`
+
+    if (this.props.roundsPlayed === 3 && this.props.score < 5) {
+      return hint.toUpperCase()
+    } else if (this.props.roundsPlayed === 6 && this.props.score < 10) {
+      return hint.toUpperCase()
+    }
   };
 
   render() {
@@ -171,7 +175,7 @@ class GameOne extends Component {
           <img src={this.state.images} alt="dawg" />
           <div>
             <h4>Check me out, dawg!</h4>
-            <h4>{this.hint()}</h4>
+            <h3>{this.hint()}</h3>
             <button onClick={() => this.handleChoice(this.state.options[0])}>
               {" "}
               1.
