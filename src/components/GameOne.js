@@ -71,7 +71,7 @@ class GameOne extends Component {
   handleChoice = guessedBreed => {
     if (
       guessedBreed === this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed < 5
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
@@ -80,7 +80,7 @@ class GameOne extends Component {
       this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
-      this.props.roundsPlayed < 10
+      this.props.roundsPlayed < 5
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
@@ -105,7 +105,7 @@ class GameOne extends Component {
     Mousetrap.bind("3", () => this.handleChoice(this.state.options[2]));
     Mousetrap.bind("enter", () => this.restartGame());
 
-    if (this.props.roundsPlayed === 10 && this.props.score === 10) {
+    if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
         <div className='GameWin'>
           <img src={DoggoHappy} alt="Dog sad"/>
@@ -127,7 +127,7 @@ class GameOne extends Component {
           <button onClick={this.restarteGame}>Start New Game</button>
         </div>
       )
-    } else if (this.props.roundsPlayed === 10 && this.props.score < 10) {
+    } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {
       const categories = [
         "You are not that much into doggos, are you?",
         "This made me wanna howl",
