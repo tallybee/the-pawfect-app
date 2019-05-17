@@ -1,3 +1,12 @@
+.Image-container {
+  border: 1px solid #ccc;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+
 .Image-container img {
   width: 200px; 
   margin: 15px;
@@ -7,4 +16,8 @@
 
 .Image-container img:hover {
   transform: scale(1.1)
+}
+
+.Container h3 {
+  text-transform: uppercase;
 }

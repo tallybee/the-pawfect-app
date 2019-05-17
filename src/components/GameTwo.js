@@ -158,18 +158,18 @@ class GameTwo extends Component {
     
     return (
       this.state.images !== null &&
-      <div>
+      <div className='Container'>
         <h1>Find the {this.props.correctDogBreed}!</h1>
         <div className='Image-container'>
-          <h4>Where am I?</h4>
+          <h4>Who am I?</h4>
           <img src={this.state.images[0]} alt='first' onClick={() => this.handleChoice(this.state.options[0])} />
           
           <img src={this.state.images[1]} alt='second' onClick={() => this.handleChoice(this.state.options[1])} />
           
-          <img src={this.state.images[2]} alt='third' onClick={() => this.handleChoice(this.state.options[2])} />
-          
-          <h3>You guessed {this.props.score} breed out of {this.props.roundsPlayed} dogs.</h3>
+          <img src={this.state.images[2]} alt='third' onClick={() => this.handleChoice(this.state.options[2])} />          
         </div>
+
+        <h3>You guessed {this.props.score} breed out of {this.props.roundsPlayed} dogs.</h3>
     </div>
   );}
 }
