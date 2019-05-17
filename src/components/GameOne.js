@@ -17,7 +17,7 @@ class GameOne extends Component {
   state = {
     options: [],
     correctDogBreed: null,
-    images: null
+    images: null,
   };
 
   componentDidMount() {
@@ -135,10 +135,6 @@ class GameOne extends Component {
         "Pawsitive result",
         "You still have a lot to learn",
         "You know some dawgs!0",
-        "Keep going",
-        "You are getting better",
-        "That's the spirit",
-        "Amazing"
       ];
       
       return (

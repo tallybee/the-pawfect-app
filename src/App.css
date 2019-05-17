@@ -21,11 +21,11 @@
 }
 
 .correctButton {
-  background: green;
+  background: #008000;
 }
 
 .wrongButton {
-  background: red
+  background: #ff0000;
 }
 
 .Home-app {
@@ -36,16 +36,16 @@
 @media (max-width: 414px) {
   .App-img1 {
     position: absolute;
-    width: 50px;
-    margin-top: 15px;
+    width: 35px;
     left: 5px;
+    margin-top: 25px;
   }
   
   .App-img2 {
     position: absolute;
-    width: 50px;
+    width: 35px;
     top: 0;
     right: 5px;
-    margin-top: 15px;
+    margin-top: 25px;
   }
 }
