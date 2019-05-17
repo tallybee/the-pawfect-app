@@ -21,7 +21,8 @@ class GameOne extends Component {
 
   componentDidMount() {
     setTimeout(
-      () => request
+      () =>
+       request
         .get(`https://dog.ceo/api/breeds/list/all`)
         .then(response => {
           const breeds = Object.keys(response.body.message);
