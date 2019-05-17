@@ -2,7 +2,9 @@ const initialState = {
   selectedDogBreed: '', 
   correctDogBreed: '',
   roundsPlayed: 0,
-  score: 0
+  score: 0,
+  previousBreeds: [],
+  buttonColors: ['blue', 'green', 'red']
 };
 
 export default function reducer(state = initialState, action) {
@@ -19,14 +21,16 @@ export default function reducer(state = initialState, action) {
         ...state,
         selectedDogBreed: action.payload,
         score: state.score + 1,
-        roundsPlayed: state.roundsPlayed +1
+        roundsPlayed: state.roundsPlayed +1,
+        previousBreeds: [...state.previousBreeds, action.payload]
       };
     }
       case "WRONG_GUESS": {
         return {
           ...state,
           selectedDogBreed: action.payload,
-          roundsPlayed: state.roundsPlayed +1
+          roundsPlayed: state.roundsPlayed +1,
+          previousBreeds: [...state.previousBreeds, action.payload]
         }
       }
       case "START_NEW_GAME": {
