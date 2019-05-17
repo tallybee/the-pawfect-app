@@ -1,9 +1,15 @@
 .App {
   text-align: center;
 }
+
 .Home-app {
   width: 50%;
   margin: 0 auto;
+}
+
+.game-link {
+  color: #000;
+  font-weight: bold;
 }
 
 .App-img1 {
@@ -43,10 +49,6 @@
     top: 0;
     right: 5px;
     margin-top: 15px;
-  }
-
-  .Home-app {
-    width: 75%;
   }
 }
 
