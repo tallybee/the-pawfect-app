@@ -9,6 +9,8 @@ import Sound from 'react-sound'
 
 import "./GameTwo.css";
 
+const Mousetrap = require("mousetrap");
+
 class GameTwo extends Component {
   state = { 
     options: [],
@@ -93,11 +95,13 @@ class GameTwo extends Component {
     }
   };
 
-  restarteGame() {
+  restartGame() {
     window.location.reload()
   }
 
   render() {
+    Mousetrap.bind("enter", () => this.restartGame());
+
     if (this.props.roundsPlayed === 5 && this.props.score === 5) {
       return (
         <div className='GameWin'>
@@ -117,7 +121,8 @@ class GameTwo extends Component {
           <div>
             <h3>You are the most pawfect doggo lover!</h3>
           </div>
-          <button onClick={this.restarteGame}>Start New Game</button>
+          <button onClick={this.restartGame}>Start New Game</button>
+          <p>Click or Press ENTER</p>
         </div>
       )
     } else if (this.props.roundsPlayed === 5 && this.props.score < 5) {
