@@ -1,5 +1,5 @@
 import React from 'react'
-import './DogBreedImages.css'
+import '../css/DogBreedImages.css'
 
 export default function DogBreedImages(props) {
   const { images } = props

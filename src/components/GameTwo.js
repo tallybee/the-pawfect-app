@@ -7,7 +7,7 @@ import soundwin from '../sounds/shootingstar.mp3'
 import soundfail from '../sounds/fail.mp3'
 import Sound from 'react-sound'
 
-import "./GameTwo.css";
+import "../css/GameTwo.css";
 
 const Mousetrap = require("mousetrap");
 
