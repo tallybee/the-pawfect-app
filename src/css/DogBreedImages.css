@@ -9,7 +9,7 @@
   width: 200px;
 }
 
-@media (min-width: 360px) {
+@media (max-width: 360px) {
   .Image-list {
     columns: 2;
     margin: 25px;
