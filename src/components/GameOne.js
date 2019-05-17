@@ -197,6 +197,7 @@ class GameOne extends Component {
               {" "}
               3. {this.state.options[2]}{" "}
             </button>
+            <h3>The last dog was a {this.props.previousBreeds[this.props.previousBreeds.length-1]}</h3>
             <h3>{this.showPercentage()}</h3>
             <h3>
               You guessed {this.props.score} breed out of {" "}
