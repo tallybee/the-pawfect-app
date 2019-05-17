@@ -1,0 +1,23 @@
+.Image-list {
+  columns: 5;
+  margin: 25px;
+}
+  
+.Image-list img {
+  border-radius: 10px;
+  padding: 5px;
+  width: 200px;
+}
+
+@media (min-width: 360px) {
+  .Image-list {
+    columns: 2;
+    margin: 25px;
+  }
+    
+  .Image-list img {
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+  }
+}
