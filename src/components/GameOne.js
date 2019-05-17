@@ -20,13 +20,16 @@ class GameOne extends Component {
   };
 
   componentDidMount() {
-    request
-      .get(`https://dog.ceo/api/breeds/list/all`)
-      .then(response => {
-        const breeds = Object.keys(response.body.message);
-        this.updateOptions(breeds);
-      })
-      .catch(console.error);
+    setTimeout(
+      () => request
+        .get(`https://dog.ceo/api/breeds/list/all`)
+        .then(response => {
+          const breeds = Object.keys(response.body.message);
+          this.updateOptions(breeds);
+        })
+        .catch(console.error),
+      2000
+    )
   }
 
   updateOptions(breeds) {
@@ -68,16 +71,16 @@ class GameOne extends Component {
     });
   }
 
-  handleChoice = guessedBreed => {
+  handleChoice = (guessedBreed, index) => {
     if (
       guessedBreed === this.props.correctDogBreed &&
       this.props.roundsPlayed < 10
     ) {
       this.props.dispatch({
         type: "CORRECT_GUESS",
-        payload: guessedBreed
+        payload: guessedBreed,
+        index
       });
-      this.className = 
       this.componentDidMount();
     } else if (
       guessedBreed !== this.props.correctDogBreed &&
@@ -85,7 +88,8 @@ class GameOne extends Component {
     ) {
       this.props.dispatch({
         type: "WRONG_GUESS",
-        payload: guessedBreed
+        payload: guessedBreed,
+        index
       });
       this.componentDidMount();
     } else {
@@ -147,12 +151,8 @@ class GameOne extends Component {
         "This made me wanna howl",
         "Still room for imp-woof-ment!",
         "Pawsitive result",
-        "You still have a lot to learn",
-        "You know some dawgs!",
-        "Keep going",
-        "You are getting better",
-        "That's the spirit",
-        "Amazing"
+        "Almost there",
+        "You are pawfect!"
       ];
 
       return (
@@ -186,10 +186,10 @@ class GameOne extends Component {
           <h4>{this.hint()}</h4>
           <h4>Check me out!</h4>
           {this.state.options.map((option, index) => {
-            const className = this.props.buttonClasses[index]
+            const className= this.props.buttonClasses[index];
             return <button
               value={option}
-              onClick={() => this.handleChoice(option)}
+              onClick={() => this.handleChoice(option, index)}
               className={className}
             >
               {" "}
