@@ -193,7 +193,6 @@ class GameOne extends Component {
             </h3>
           </div>
         </div>
-      </div>
       );
   }
 }
