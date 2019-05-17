@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import request from "superagent";
 import DoggoHappy from '../img/doggohappy.png'
-import Cat from '../img/cat.png'
+import DoggoSad from '../img/doggosad.png'
 import soundwin from '../sounds/shootingstar.mp3'
 import soundfail from '../sounds/fail.mp3'
 import Sound from 'react-sound'
@@ -154,12 +154,10 @@ class GameOne extends Component {
       
       return (
         <div className='GameOver'>
-          <img src={Cat} alt="Dog sad"/>
+          <img src={DoggoSad} alt="Dog sad"/>
           <h2>GAME OVER</h2>
           <div>
             <h3>You guessed {this.props.score} out of {this.props.roundsPlayed} ({Math.round((this.props.score/this.props.roundsPlayed)*100)}%).</h3>
-           <h4>You knowledge about Dogs suck you peasant</h4>
-           <h4>JOIN THE CAT SIDE</h4>
             <Sound
               url={soundfail}
               playStatus={Sound.status.PLAYING}
