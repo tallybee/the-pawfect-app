@@ -104,6 +104,12 @@ class GameOne extends Component {
     } else { return `The name of my breed has the letter ${this.props.correctDogBreed.split('')[Math.floor(Math.random() * this.props.correctDogBreed.length)]} in it.` }
   };
 
+  showPercentage = () => {
+    if (this.props.roundsPlayed !== 0) 
+      { return `You have a score of ${Math.round((this.props.score/this.props.roundsPlayed)*100)}%.`
+  }
+}
+
   render() {
     Mousetrap.bind("1", () => this.handleChoice(this.state.options[0]));
     Mousetrap.bind("2", () => this.handleChoice(this.state.options[1]));
@@ -116,7 +122,7 @@ class GameOne extends Component {
           <img src={DoggoHappy} alt="Dog sad"/>
           <h2>You WIN</h2>
           <div>
-            <h3>You have {this.props.score} correct guesses.</h3>
+            <h3>You guessed {this.props.score} out of {this.props.roundsPlayed} ({Math.round((this.props.score/this.props.roundsPlayed)*100)}%)!</h3>
             <Sound
               url={soundwin}
               playStatus={Sound.status.PLAYING}
@@ -147,7 +153,7 @@ class GameOne extends Component {
           <img src={DoggoSad} alt="Dog sad"/>
           <h2>GAME OVER</h2>
           <div>
-            <h3>You have {this.props.score} correct guesses.</h3>
+            <h3>You guessed {this.props.score} out of {this.props.roundsPlayed} ({Math.round((this.props.score/this.props.roundsPlayed)*100)}%).</h3>
             <Sound
               url={soundfail}
               playStatus={Sound.status.PLAYING}
@@ -187,6 +193,7 @@ class GameOne extends Component {
               {" "}
               3. {this.state.options[2]}{" "}
             </button>
+            <h3>{this.showPercentage()}</h3>
             <h3>
               You guessed {this.props.score} breed out of {" "}
               {this.props.roundsPlayed} dogs.
