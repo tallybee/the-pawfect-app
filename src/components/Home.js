@@ -7,8 +7,15 @@ export default class Home extends Component {
     return (
       <div className='Home-app'>
         <h1>Welcome</h1>
-        <p>The Pawfect App is a game to test your knowledge about Doggos Breed. And before you take this pawesome chanllenge, you can always educate your self about it by going to <strong>DOGS LIST</strong>, there are 87 different breeds. But you think that you are a Doggo expect skip it and show us what you got.</p>
-        <p>There is two games for you to Play. In each game you have 10 turns. To win you need to guess all 10 correctly</p>
+        <p>HI and welcome to the Pawfect app! Fur-tastic to see you here. Wanna hear a joke?</p>
+
+        <p>Q: What do you call a sad pup?</p>
+        <p>A: mellon collie</p>
+
+        <p>Now that we’ve got your attention, let’s learn some dog breeds! It might be a ruff ride at first, but we’ve got some hints for you.</p>
+        <p>We made two games for you, so you don’t pug-get any breeds! In <strong>“GUESS MY BREED”</strong>, look at a pic of doggo and choose which one it is. In <strong>“GUESS MY FACE”</strong>, you’ll have to figure out which of the pics belongs to the breed! And to finish off..</p>
+        <p>Where do dogs go after their tails fall off?
+        The re-tail store.</p>
         <Link to={"/gameOne"} className='game-link'>GAME 1:</Link> &nbsp; You will see a pawcture of a doggo, and you will have to choose the right answer.
         <br/>
         <Link to={"/gameTwo"} className='game-link'>GAME 2:</Link> &nbsp; You will see 3 different doggos, and you will have to click on the right pawcture.
