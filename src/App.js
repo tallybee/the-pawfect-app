@@ -19,8 +19,8 @@ function App() {
         <ul className="header">
           <li><NavLink to="/">Home</NavLink></li> |
           <li><NavLink to="/dogsBreedList">Dogs List</NavLink></li> |
-          <li><NavLink to="/gameOne">Game One</NavLink></li> |
-          <li><NavLink to="/gameTwo">Game Two</NavLink></li>
+          <li><NavLink to="/gameOne">Guess my breed</NavLink></li> |
+          <li><NavLink to="/gameTwo">Guess my face</NavLink></li>
         </ul>
       <div className="content">
         <Route exact path="/" component={Home}/>
