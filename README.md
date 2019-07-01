@@ -15,4 +15,4 @@ In order to run this App you need to:
 - npm start
 
 ## Group Project
-Build a dog breed memorization game. You'll be using a free public API called [Dog API](https://dog.ceo/dog-api/documentation/). The webapp must be built using React and Redux.
+Build a dog breed memorization game. using a free public API called [Dog API](https://dog.ceo/dog-api/documentation/). The webapp must be built using React and Redux.
